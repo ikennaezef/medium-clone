@@ -1,8 +1,14 @@
-import type { NextPage } from "next";
 import Head from "next/head";
-import { Header } from "../components";
+import { Banner, Header, SinglePost } from "../components";
+import { sanityClient } from "../lib/sanity";
+import { Post } from "../types";
 
-const Home: NextPage = () => {
+interface Props {
+	posts: [Post];
+}
+
+const Home = ({ posts }: Props) => {
+	console.log(posts);
 	return (
 		<div>
 			<Head>
@@ -10,8 +16,34 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header />
+			<Banner />
+			<div className="max-w-7xl p-2 md:p-6 grid grid-cols-1 gap-3 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{posts.map((post) => (
+					<SinglePost post={post} key={post._id} />
+				))}
+			</div>
 		</div>
 	);
 };
 
 export default Home;
+
+export const getServerSideProps = async () => {
+	const query = `*[_type=="post"]{
+		_id,
+		slug,
+		title,
+		description,
+		mainImage,
+		author -> {
+			name,
+			image
+		}
+	}`;
+
+	const posts = await sanityClient.fetch(query);
+
+	return {
+		props: { posts },
+	};
+};
