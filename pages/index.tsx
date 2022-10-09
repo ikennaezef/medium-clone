@@ -8,7 +8,6 @@ interface Props {
 }
 
 const Home = ({ posts }: Props) => {
-	console.log(posts);
 	return (
 		<div>
 			<Head>
