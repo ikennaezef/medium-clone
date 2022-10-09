@@ -13,11 +13,9 @@ const Home = ({ posts }: Props) => {
 		<div>
 			<Head>
 				<title>Medium Clone</title>
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header />
 			<Banner />
-			<div className="max-w-7xl p-2 md:p-6 grid grid-cols-1 gap-3 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<div className="max-w-7xl p-2 md:p-6 grid grid-cols-1 gap-3 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{posts.map((post) => (
 					<SinglePost post={post} key={post._id} />
 				))}
