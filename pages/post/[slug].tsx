@@ -40,7 +40,7 @@ const PostDetail = ({ post }: Props) => {
 	};
 
 	return (
-		<div className="mt-8 max-w-7xl p-5">
+		<div className="mt-8 max-w-7xl mx-auto p-5">
 			<Meta title={post.title} description={post.description} />
 			<div className="flex items-center space-x-5">
 				<img
@@ -95,7 +95,7 @@ const PostDetail = ({ post }: Props) => {
 				</div>
 			</div>
 			<hr className="my-8 bg-yellow-500 max-w-3xl mx-auto border-none h-[1px]" />
-			<div>
+			<div className="max-w-3xl mx-auto">
 				{submitted ? (
 					<div className="p-6 py-10 my-10 bg-yellow-500">
 						<h3 className="text-2xl font-bold mb-3">
