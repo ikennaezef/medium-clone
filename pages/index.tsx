@@ -19,7 +19,6 @@ const Home = ({ posts }: Props) => {
 					<SinglePost post={post} key={post._id} />
 				))}
 			</div>
-			<Footer />
 		</div>
 	);
 };

@@ -179,7 +179,7 @@ const PostDetail = ({ post }: Props) => {
 					)}
 					{post.comments.map((comment) => (
 						<div key={comment._id}>
-							<p>
+							<p className="mb-2">
 								<span className="font-bold text-yellow-600">
 									{comment.name}:{" "}
 								</span>

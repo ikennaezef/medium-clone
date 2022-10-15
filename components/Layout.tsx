@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import Meta from "./Meta";
 
 interface Props {
@@ -12,6 +13,7 @@ const Layout = ({ children }: Props) => {
 			<Meta />
 			<Header />
 			<main>{children}</main>
+			<Footer />
 		</>
 	);
 };
